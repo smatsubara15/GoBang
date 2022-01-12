@@ -1,3 +1,5 @@
+GOBANG AI PROGRAM
+
 To run this game:
 1. First go to the terminal and go to the folder these files exist in.
 2. Type "make". 
