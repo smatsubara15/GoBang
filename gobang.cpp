@@ -461,30 +461,29 @@ int main(int argv, char** argc){
                     cout<<"Input Invalid: position is off board"<<endl;
                     continue;
                 }
+                if(board[position-1][letter]!="_"){
+                    cout<<"Spot is already taken, please choose another"<<endl;
+                    continue;
+                }
                 inputValid=1;
             }
-            if(board[position-1][letter]=="_"){
-                int won;
-                board[position-1][letter]=playerColor;
-                getInput=0;
-                cout<<"Move Played: "<<int_to_letter[letter]<<position<<endl;
-                occupied_spaces.push_back(move);
-                printBoard(board);
-                spots_left--;
-                if(spots_left==0){
-                    cout<<"Game is a tie"<<endl;
-                    return 0;
-                }
-                findMyChoices(letter,position,choices,int_to_letter,occupied_spaces,size,move);
-                int score=0;
-                score=calculateScore(board,letter,position-1,score,playerColor,won);
-                if(won==1){
-                    cout<<"YOU WIN!"<<endl;
-                    return 0;
-                }
+            int won;
+            board[position-1][letter]=playerColor;
+            getInput=0;
+            cout<<"Move Played: "<<int_to_letter[letter]<<position<<endl;
+            occupied_spaces.push_back(move);
+            printBoard(board);
+            spots_left--;
+            if(spots_left==0){
+                cout<<"Game is a tie"<<endl;
+                return 0;
             }
-            else{
-                cout<<"Spot is already taken, please choose another"<<endl;
+            findMyChoices(letter,position,choices,int_to_letter,occupied_spaces,size,move);
+            int score=0;
+            score=calculateScore(board,letter,position-1,score,playerColor,won);
+            if(won==1){
+                cout<<"YOU WIN!"<<endl;
+                return 0;
             }
         }
         unordered_set<string>::iterator it;
