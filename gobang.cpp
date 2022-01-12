@@ -181,7 +181,6 @@ int calculateScore(vector<vector<string> > board, int letter, int position, int 
     else{
         AI="X";
     }
-    //printBoard(board);
     int leftBound = ((letter-5)>=0) ? (letter-5):0;
     int rightBound = ((letter+5)<board.size()) ? (letter+5):board.size()-1;
     int upperBound = ((position-5)>=0) ? (position-5):0;
@@ -430,6 +429,7 @@ int main(int argv, char** argc){
         findMyChoices((size/2),size/2,choices,int_to_letter,occupied_spaces,size,choice);
     }
     else{
+        printBoard(board);
         playerColor="X";
         AIcolor="O";
     }
